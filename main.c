@@ -52,7 +52,8 @@ int isVisitado(int x, int y, int** labirinto) {
     return labirinto[x][y] == 3;
 }
 
-
+//Se a célula visitada fizer parte de um caminho viável retornamos a QUANTIDADE de caminhos viáveis a partir DAQUELA célula,
+//levando em conta as células visitadas naquele encaminhamento.
 int solve(int x, int y, int** labirinto) {
     if(x == destinoX && y == destinoY) {
         //Objetivo final encontrado, retornar que foi encontrado 1 caminho;
@@ -69,7 +70,7 @@ int solve(int x, int y, int** labirinto) {
 
     int saidas = 0;
 
-    //Ao visitar a proxima celula a cima
+    //Primeiro veremos se o caminho a célula a cima é um caminho viável
     saidas += solve(x, y - 1, labirinto);
 
     //Após verificarmos os caminhos possíveis acima
